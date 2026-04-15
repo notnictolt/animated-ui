@@ -1,0 +1,207 @@
+/* Base Reset */
+* {
+  box-sizing: border-box;
+}
+
+/* BODY WITH IMAGE BACKGROUND */
+body {
+  display: flex;
+  margin: 0;
+  font-family: "Segoe UI", monospace;
+
+  /* 🔥 YOUR IMAGE BACKGROUND */
+  background: url("/images/bg.png") no-repeat center center fixed;
+  background-size: cover;
+
+  color: #e2e8f0;
+  position: relative;
+}
+
+/* DARK OVERLAY (IMPORTANT FOR GLASS VISIBILITY) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: rgba(2, 6, 23, 0.65); /* controls darkness */
+  backdrop-filter: blur(2px);
+
+  z-index: -1;
+}
+
+/* Layout */
+.left,
+.right {
+  width: 50%;
+  padding: 25px;
+}
+
+/* GLASS PANELS */
+.left,
+.right {
+  background: rgba(15, 23, 42, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  margin: 10px;
+}
+
+/* Headings */
+h3 {
+  margin-top: 20px;
+  color: #38bdf8;
+}
+
+h4 {
+  margin-top: 20px;
+  color: #a5b4fc;
+}
+
+h5 {
+  margin: 12px 0 6px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* INPUTS */
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(10px);
+
+  color: #e2e8f0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/* Hover + Focus */
+input:hover,
+select:hover {
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+input:focus,
+select:focus {
+  border: 1px solid #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+}
+
+/* Select arrow */
+select {
+  appearance: none;
+
+  background-image: linear-gradient(45deg, transparent 50%, #38bdf8 50%),
+    linear-gradient(135deg, #38bdf8 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(50% - 3px),
+    calc(100% - 12px) calc(50% - 3px);
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* BOX SECTIONS */
+.box {
+  margin-top: 15px;
+  padding: 14px;
+
+  background: rgba(30, 41, 59, 0.35);
+  backdrop-filter: blur(14px);
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* BUTTON */
+button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+
+  border-radius: 12px;
+  border: none;
+
+  background: rgba(34, 197, 94, 0.8);
+  backdrop-filter: blur(10px);
+
+  color: #022c22;
+  font-weight: bold;
+  cursor: pointer;
+
+  box-shadow: 0 6px 25px rgba(34, 197, 94, 0.3);
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.5);
+}
+
+/* PAGE BUTTONS */
+a {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+
+  color: #e0f2fe;
+  font-weight: bold;
+
+  background: rgba(59, 130, 246, 0.1);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.1);
+
+  transition: all 0.25s ease;
+}
+
+a:hover {
+  transform: translateY(-2px);
+}
+
+/* OUTPUT */
+#output {
+  background: rgba(2, 6, 23, 0.5);
+  backdrop-filter: blur(14px);
+
+  padding: 15px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  height: 100%;
+  overflow: auto;
+
+  color: #22c55e;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.6);
+  border-radius: 10px;
+}

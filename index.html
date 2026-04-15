@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UI JSON Builder</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>nic_x.json generator</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
     <div class="left">
-      <h3>Panel Settings</h3>
+      <a href="pages/page2.html">Bottom text generator</a>
+
+      <h3 style="text-align: center">Title Generator</h3>
 
       <!-- SIZE -->
       <label>Size (x,y)</label>
       <input id="size" placeholder="180,28 or 40%,28" />
 
       <!-- ANIM -->
-      <label>$anim_from (x,y)</label>
+      <label>Animation starts from (x,y)</label>
       <input id="anim_from" placeholder="0,-20%" />
 
-      <label>$anim_to (x,y)</label>
+      <label>Animation ends to (x,y)</label>
       <input id="anim_to" placeholder="0,0" />
 
       <!-- ANCHORS -->
-      <label>Anchor From</label>
+      <label>Anchor</label>
       <select id="anchor_from">
         <option>top_middle</option>
-        <option>left_middle</option>
-        <option>right_middle</option>
+        <option>top_left</option>
+        <option>top_right</option>
       </select>
 
-      <label>Anchor To</label>
-      <select id="anchor_to">
-        <option>top_middle</option>
-        <option>left_middle</option>
-        <option>right_middle</option>
-      </select>
-
-      <h3>Title Type</h3>
+      <h3 style="text-align: center">Title Type</h3>
 
       <select id="title_type">
         <option value="label">Label</option>
@@ -44,7 +39,16 @@
 
       <!-- LABEL OPTIONS -->
       <div id="label_options" class="box">
-        <h4>Default State</h4>
+        <h4 style="text-align: center">Label Settings</h4>
+        <h5>Font scale</h5>
+        <input id="font_scale" placeholder="4" />
+        <select id="text_align">
+          <option>left</option>
+          <option selected>center</option>
+          <option>right</option>
+        </select>
+
+        <h4 style="text-align: center">Default State</h4>
         <input id="text_default" placeholder="Text" />
         <input id="color_default" placeholder="1,1,1" />
         <select id="font_default">
@@ -55,7 +59,7 @@
           <option>MinecraftTen</option>
         </select>
 
-        <h4>Hover State</h4>
+        <h4 style="text-align: center">Hover State</h4>
         <input id="text_hover" placeholder="Text" />
         <input id="color_hover" placeholder="1,1,1" />
         <select id="font_hover">
@@ -65,25 +69,17 @@
           <option selected>smooth</option>
           <option>MinecraftTen</option>
         </select>
-
-        <h4>Label Settings</h4>
-        <input id="font_scale" placeholder="Font scale (4)" />
-        <select id="text_align">
-          <option>left</option>
-          <option selected>center</option>
-          <option>right</option>
-        </select>
       </div>
 
       <!-- IMAGE OPTIONS -->
       <div id="image_options" class="box" style="display: none">
-        <h4>Default Texture</h4>
+        <h4 style="text-align: center">Default Texture</h4>
         <input id="tex_default" placeholder="textures/ui/title" />
 
-        <h4>Hover Texture</h4>
+        <h4 style="text-align: center">Hover Texture</h4>
         <input id="tex_hover" placeholder="textures/ui/title" />
 
-        <h4>Splash text Settings</h4>
+        <h4 style="text-align: center">Splash text Settings</h4>
         <h5>Ignored</h5>
         <select id="ignored">
           <option>true</option>
@@ -100,6 +96,6 @@
       <pre id="output"></pre>
     </div>
 
-    <script src="script.js"></script>
+    <script src="scripts/nic_x.js"></script>
   </body>
 </html>
