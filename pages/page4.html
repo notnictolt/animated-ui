@@ -51,51 +51,52 @@
     <div class="main">
       <div class="left">
         <h1 style="text-align: center">Overlay Editor</h1>
-        <label>Size (x,y)</label>
-        <input id="size" placeholder="120%,120%" />
+        <div class="box">
+          <label>Size (x,y)</label>
+          <input id="size" placeholder="120%,120%" />
 
-        <label>Anchor</label>
-        <select id="anchor">
-          <option>center</option>
-        </select>
-
+          <label>Anchor</label>
+          <select id="anchor">
+            <option>center</option>
+          </select>
+        </div>
         <h3 style="text-align: center">Overlay Type</h3>
         <select id="type">
           <option value="image">Image</option>
           <option value="gradient">Gradient</option>
         </select>
+        <div class="box">
+          <!-- IMAGE SETTINGS -->
+          <div id="image_box">
+            <h4 style="text-align: center">Image Settings</h4>
 
-        <!-- IMAGE SETTINGS -->
-        <div id="image_box">
-          <h3 style="text-align: center">Image Settings</h3>
+            <label>Texture</label>
+            <input id="texture" placeholder="textures/animated_ui/overlay" />
 
-          <label>Texture</label>
-          <input id="texture" placeholder="textures/animated_ui/overlay" />
+            <label>Color (r,g,b)</label>
+            <input id="color" placeholder="0,0,0" />
 
-          <label>Color (r,g,b)</label>
-          <input id="color" placeholder="0,0,0" />
+            <label>Alpha</label>
+            <input id="alpha" placeholder="0.4" />
 
-          <label>Alpha</label>
-          <input id="alpha" placeholder="0.4" />
+            <label>Fill</label>
+            <select id="fill">
+              <option>true</option>
+              <option>false</option>
+            </select>
+          </div>
 
-          <label>Fill</label>
-          <select id="fill">
-            <option>true</option>
-            <option>false</option>
-          </select>
+          <!-- GRADIENT SETTINGS -->
+          <div id="gradient_box" style="display: none">
+            <h4 style="text-align: center">Gradient Settings</h4>
+
+            <label>Color 1 (r,g,b,a)</label>
+            <input id="color1" placeholder="0,0,0,0.5" />
+
+            <label>Color 2 (r,g,b,a)</label>
+            <input id="color2" placeholder="0,0,0,0.7" />
+          </div>
         </div>
-
-        <!-- GRADIENT SETTINGS -->
-        <div id="gradient_box" style="display: none">
-          <h3 style="text-align: center">Gradient Settings</h3>
-
-          <label>Color 1 (r,g,b,a)</label>
-          <input id="color1" placeholder="0,0,0,0.5" />
-
-          <label>Color 2 (r,g,b,a)</label>
-          <input id="color2" placeholder="0,0,0,0.7" />
-        </div>
-
         <button onclick="downloadJSON()">Download JSON</button>
       </div>
 
