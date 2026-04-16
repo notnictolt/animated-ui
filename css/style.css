@@ -1,51 +1,108 @@
-/* Base Reset */
+/* RESET */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* BODY WITH IMAGE BACKGROUND */
+/* BODY */
 body {
   display: flex;
   flex-direction: column;
-  margin: 0;
   font-family: "Segoe UI", monospace;
 
-  /* 🔥 YOUR IMAGE BACKGROUND */
   background: url("../images/bg.png") no-repeat center center fixed;
   background-size: cover;
 
   color: #e2e8f0;
+  min-height: 100vh;
+  overflow-x: hidden; /* 🔥 prevents right cutoff */
   position: relative;
 }
 
-/* make them split evenly */
-
-/* 📱 MOBILE: stack vertically */
-@media (max-width: 768px) {
-  .main {
-    flex-direction: column;
-  }
-}
-/* DARK OVERLAY (IMPORTANT FOR GLASS VISIBILITY) */
+/* DARK OVERLAY */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-
-  background: rgba(2, 6, 23, 0.65); /* controls darkness */
+  background: rgba(2, 6, 23, 0.65);
   backdrop-filter: blur(2px);
-
   z-index: -1;
 }
+
+/* NAVBAR */
+.topnav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 40px;
+  padding: 12px 20px;
+  margin: 10px;
+
+  background: rgba(7, 44, 42, 0.4);
+  backdrop-filter: blur(12px);
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  flex-shrink: 0; /* 🔥 prevents shrinking */
+}
+
+/* NAV LINKS */
+.topnav a {
+  position: relative;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  color: #cbd5f5;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.topnav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  transition: width 0.25s ease;
+}
+
+.topnav a:hover {
+  opacity: 1;
+  color: #fff;
+}
+
+.topnav a:hover::after {
+  width: 100%;
+}
+
+/* MAIN LAYOUT */
 .main {
   display: flex;
   gap: 10px;
+  padding: 10px;
+
+  flex: 1; /* 🔥 fill remaining height */
+  min-height: 0; /* 🔥 critical fix for overflow bugs */
 }
-/* GLASS PANELS */
+
+/* PANELS */
 .left,
 .right {
-  padding: 25px;
   flex: 1;
+  min-width: 0; /* 🔥 prevents overflow cutoff */
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+
   background: rgba(15, 23, 42, 0.2);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -53,35 +110,17 @@ body::before {
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   border-radius: 16px;
-  margin: 10px;
 }
 
-/* Headings */
-h1 {
-  margin-top: 20px;
-  color: #b855f1ff;
-}
-
+/* HEADINGS */
 h3 {
   margin-top: 20px;
   color: #38bdf8;
 }
 
-h4 {
-  margin-top: 20px;
-  color: #a5b4fc;
-}
-
-h5 {
-  margin: 12px 0 6px;
-  font-size: 12px;
-  color: #94a3b8;
-}
-
-/* Labels */
+/* LABELS */
 label {
   display: block;
-  margin: 2px;
   margin-bottom: 6px;
   font-size: 13px;
   color: #94a3b8;
@@ -102,10 +141,9 @@ select {
   border: 1px solid rgba(255, 255, 255, 0.1);
 
   outline: none;
-  transition: all 0.25s ease;
+  transition: 0.25s;
 }
 
-/* Hover + Focus */
 input:hover,
 select:hover {
   border: 1px solid rgba(56, 189, 248, 0.4);
@@ -117,7 +155,7 @@ select:focus {
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
 }
 
-/* Select arrow */
+/* SELECT ARROW */
 select {
   appearance: none;
 
@@ -129,7 +167,7 @@ select {
   background-repeat: no-repeat;
 }
 
-/* BOX SECTIONS */
+/* BOX */
 .box {
   margin-top: 15px;
   padding: 14px;
@@ -143,7 +181,7 @@ select {
 
 /* BUTTON */
 button {
-  margin-top: 20px;
+  margin-top: auto;
   padding: 12px;
   width: 100%;
 
@@ -153,84 +191,25 @@ button {
   background: rgba(11, 150, 62, 0.1);
   backdrop-filter: blur(20px);
 
-  color: #7bfa68ff;
+  color: #7bfa68;
   font-weight: bold;
   cursor: pointer;
 
   box-shadow: 0 6px 25px rgba(28, 178, 14, 0.1);
-  transition: all 0.25s ease;
+  transition: 0.25s;
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.1);
 }
 
-/* TOP NAV BAR */
-.topnav {
-  display: flex;
-  justify-content: center; /* 🔥 centers horizontally */
-  align-items: center;
-
-  gap: 40px;
-  padding: 12px 20px;
-  margin-bottom: 20px;
-
-  background: rgba(2, 6, 23, 0.4);
-  backdrop-filter: blur(12px);
-
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* NAV LINKS */
-.topnav a {
-  position: relative;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 1px;
-
-  color: #cbd5f5;
-  opacity: 0.8;
-
-  transition: all 0.2s ease;
-}
-
-/* HOVER EFFECT (underline glow like Lunar) */
-.topnav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 2px;
-
-  background: linear-gradient(90deg, #38bdf8, #818cf8);
-  transition: width 0.25s ease;
-}
-
-/* hover */
-.topnav a:hover {
-  opacity: 1;
-  color: #ffffff;
-}
-
-.topnav a:hover::after {
-  width: 100%;
-}
-
-/* active (optional highlight) */
-.topnav a.active {
-  color: #38bdf8;
-}
-
-.topnav a.active::after {
-  width: 100%;
-}
-
-/* OUTPUT */
+/* OUTPUT PANEL */
 #output {
+  flex: 1;
+  min-height: 0; /* 🔥 important */
+
+  margin-top: 10px;
+
   background: rgba(2, 6, 23, 0.5);
   backdrop-filter: blur(14px);
 
@@ -239,13 +218,12 @@ button:hover {
 
   border: 1px solid rgba(255, 255, 255, 0.05);
 
-  height: 100%;
   overflow: auto;
 
   color: #22c55e;
 }
 
-/* Scrollbar */
+/* SCROLLBAR */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -253,4 +231,20 @@ button:hover {
 ::-webkit-scrollbar-thumb {
   background: rgba(71, 85, 105, 0.6);
   border-radius: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+
+  button {
+    margin-top: 20px;
+  }
 }
