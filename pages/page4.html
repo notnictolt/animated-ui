@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Overlay | Animated Ui</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicon-16x16.png"
+    />
+
+    <!-- ICO fallback -->
+    <link rel="icon" href="../images/favicon.ico" />
+
+    <!-- Apple devices -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/apple-touch-icon.png"
+    />
+
+    <!-- Android / Chrome -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../images/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="../images/android-chrome-512x512.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a href="../index.html">TITLE</a>
+      <a href="page2.html">MIDDLE PANEL</a>
+      <a href="page3.html">BOTTOM TEXT</a>
+    </div>
+    <div class="main">
+      <div class="left">
+        <h1 style="text-align: center">Overlay Editor</h1>
+        <label>Size (x,y)</label>
+        <input id="size" placeholder="120%,120%" />
+
+        <label>Anchor</label>
+        <select id="anchor">
+          <option>center</option>
+        </select>
+
+        <h3 style="text-align: center">Overlay Type</h3>
+        <select id="type">
+          <option value="image">Image</option>
+          <option value="gradient">Gradient</option>
+        </select>
+
+        <!-- IMAGE SETTINGS -->
+        <div id="image_box">
+          <h3 style="text-align: center">Image Settings</h3>
+
+          <label>Texture</label>
+          <input id="texture" placeholder="textures/animated_ui/overlay" />
+
+          <label>Color (r,g,b)</label>
+          <input id="color" placeholder="0,0,0" />
+
+          <label>Alpha</label>
+          <input id="alpha" placeholder="0.4" />
+
+          <label>Fill</label>
+          <select id="fill">
+            <option>true</option>
+            <option>false</option>
+          </select>
+        </div>
+
+        <!-- GRADIENT SETTINGS -->
+        <div id="gradient_box" style="display: none">
+          <h3 style="text-align: center">Gradient Settings</h3>
+
+          <label>Color 1 (r,g,b,a)</label>
+          <input id="color1" placeholder="0,0,0,0.5" />
+
+          <label>Color 2 (r,g,b,a)</label>
+          <input id="color2" placeholder="0,0,0,0.7" />
+        </div>
+
+        <button onclick="downloadJSON()">Download JSON</button>
+      </div>
+
+      <div class="right">
+        <pre id="output"></pre>
+      </div>
+    </div>
+    <script src="/scripts/nic_overlay.js"></script>
+  </body>
+</html>

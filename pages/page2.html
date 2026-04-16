@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Animated Ui</title>
+    <title>Mi | Animated Ui</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link
       rel="icon"
@@ -43,83 +43,91 @@
   </head>
 
   <body>
-    <div class="left">
-      <a href="../index.html">Title generator</a>
-      <h3 style="text-align: center">Bottom text generator</h3>
+    <div class="topnav">
+      <a href="../index.html">TITLE</a>
+      <a href="page3.html">BOTTOM TEXT</a>
+      <a href="page4.html">OVERLAY</a>
+    </div>
+    <div class="main">
+      <div class="left">
+        <h1 style="text-align: center">Middle panel editor</h1>
+        <label>Size (x,y)</label>
+        <input id="size" placeholder="120,128" />
+        <label>Animation starts from (x,y)</label>
+        <input id="anim_from" placeholder="0,20%" />
+        <label>Animation ends to (x,y)</label>
+        <input id="anim_to" placeholder="0,0" />
+        <label>Anchor</label>
+        <select id="anchor">
+          <option>center</option>
+          <option>left_middle</option>
+          <option>right_middle</option>
+        </select>
 
-      <label>Size (x,y)</label>
-      <input id="size" placeholder="100%c,100%c" />
+        <h3 style="text-align: center">Button Designs</h3>
+        <select id="panel_type">
+          <option value="label">Label</option>
+          <option value="image">Image</option>
+        </select>
+        <label>Size (x,y)</label>
+        <input id="panel_size" placeholder="100%,20" />
+        <label>Font Size</label>
+        <input id="font_scale" placeholder="1" />
+        <label>Font alignment</label>
+        <select id="align">
+          <option>left</option>
+          <option selected>center</option>
+          <option>right</option>
+        </select>
+        <!-- IMAGE ONLY -->
+        <div id="image_style">
+          <h4>Texture</h4>
+          <label>Default texture</label>
+          <input
+            id="tex_default"
+            placeholder="textures/animated_ui/button"
+          /><label>Hover texture</label>
+          <input id="tex_hover" placeholder="textures/animated_ui/button" />
+          <label>Size (x,y)</label>
+          <input id="img_size" placeholder="100% - 2px,100% - 2px" />
+        </div>
+        <!-- DEFAULT -->
+        <h4>Default State</h4>
+        <label>Font Type</label>
+        <select id="font_default">
+          <option>default</option>
+          <option>rune</option>
+          <option>unicode</option>
+          <option>smooth</option>
+          <option>MinecraftTen</option>
+        </select>
+        <label>Label color</label>
+        <input id="color_default" placeholder="1,1,1" />
 
-      <label>Anchor</label>
-      <select id="anchor">
-        <option>bottom_middle</option>
-        <option>bottom_left</option>
-        <option>bottom_right</option>
-      </select>
+        <!-- HOVER -->
+        <h4>Hover State</h4>
+        <label>Font Type</label>
+        <select id="font_hover">
+          <option>default</option>
+          <option>rune</option>
+          <option>unicode</option>
+          <option>smooth</option>
+          <option>MinecraftTen</option>
+        </select>
+        <label>Label color</label>
+        <input id="color_hover" placeholder="1,1,1" />
 
-      <label>Animation starts from (x,y)</label>
-      <input id="anim_from" placeholder="0,20%" />
+        <h3>Buttons</h3>
+        <input id="btn_count" type="number" value="2" min="1" max="8" />
+        <div id="buttons_container"></div>
 
-      <label>Animation ends to (x,y)</label>
-      <input id="anim_to" placeholder="0,0" />
-
-      <h3 style="text-align: center">Label Settings</h3>
-
-      <label>Font Type</label>
-      <select id="font">
-        <option>default</option>
-        <option>rune</option>
-        <option>unicode</option>
-        <option>smooth</option>
-        <option>MinecraftTen</option>
-      </select>
-
-      <label>Color (r,g,b)</label>
-      <input id="color" placeholder="1,1,1" />
-
-      <label>Alpha (0-1)</label>
-      <input id="alpha" placeholder="0.5" />
-
-      <label>Text Alignment</label>
-      <select id="align">
-        <option>left</option>
-        <option selected>center</option>
-        <option>right</option>
-      </select>
-
-      <h3 style="text-align: center">Bindings</h3>
-
-      <label>Enable Version Binding</label>
-      <select id="bind_version">
-        <option value="true" selected>true</option>
-        <option value="false">false</option>
-      </select>
-
-      <label>Enable Player Binding</label>
-      <select id="bind_player">
-        <option value="true" selected>true</option>
-        <option value="false">false</option>
-      </select>
-
-      <!-- EXPRESSION (HIDDEN CONDITIONALLY) -->
-      <div id="expr_box">
-        <label>Custom Text Expression</label>
-        <input id="expr" placeholder="('Minecraft ' + #version)" />
+        <button onclick="downloadJSON()">Download JSON</button>
       </div>
 
-      <!-- TEXT (HIDDEN CONDITIONALLY) -->
-      <div id="text_box">
-        <label>Text</label>
-        <input id="text" placeholder="#text" />
+      <div class="right">
+        <pre id="output"></pre>
       </div>
-
-      <button onclick="downloadJSON()">Download JSON</button>
     </div>
-
-    <div class="right">
-      <pre id="output"></pre>
-    </div>
-
-    <script src="../scripts/nic_y.js"></script>
+    <script src="/scripts/nic_y.js"></script>
   </body>
 </html>

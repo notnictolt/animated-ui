@@ -11,7 +11,13 @@ typeSelect.addEventListener("change", () => {
 function parsePair(input) {
   return input.split(",").map((v) => {
     v = v.trim();
-    return v.includes("%") ? v : Number(v);
+
+    // keep % values as string
+    if (v.includes("%")) return v;
+
+    // convert numeric values
+    const num = Number(v);
+    return isNaN(num) ? v : num;
   });
 }
 
@@ -41,8 +47,9 @@ function updateJSON() {
 
   // LABEL
   if (type === "label") {
-    const defText = document.getElementById("text_default").value;
-    const hovText = document.getElementById("text_hover").value;
+    const defText =
+      document.getElementById("text_default").value || "Minecraft";
+    const hovText = document.getElementById("text_hover").value || "Minecraft";
 
     const defColor = parsePair(
       document.getElementById("color_default").value || "1,1,1"

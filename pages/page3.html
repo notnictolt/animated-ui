@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bottom text | Animated Ui</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicon-16x16.png"
+    />
+
+    <!-- ICO fallback -->
+    <link rel="icon" href="../images/favicon.ico" />
+
+    <!-- Apple devices -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/apple-touch-icon.png"
+    />
+
+    <!-- Android / Chrome -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../images/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="../images/android-chrome-512x512.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a href="../index.html">TITLE</a>
+      <a href="page2.html">MIDDLE PANEL</a>
+      <a href="page4.html">OVERLAY</a>
+    </div>
+    <div class="main">
+      <div class="left">
+        <h3 style="text-align: center">Bottom text generator</h3>
+
+        <label>Size (x,y)</label>
+        <input id="size" placeholder="100%c,20" />
+
+        <label>Animation starts from (x,y)</label>
+        <input id="anim_from" placeholder="0,20%" />
+
+        <label>Animation ends to (x,y)</label>
+        <input id="anim_to" placeholder="0,0" />
+        <label>Anchor</label>
+        <select id="anchor">
+          <option>bottom_middle</option>
+          <option>bottom_left</option>
+          <option>bottom_right</option>
+        </select>
+        <h3 style="text-align: center">Label Settings</h3>
+
+        <label>Font Type</label>
+        <select id="font">
+          <option>default</option>
+          <option>rune</option>
+          <option>unicode</option>
+          <option>smooth</option>
+          <option>MinecraftTen</option>
+        </select>
+
+        <label>Color (r,g,b)</label>
+        <input id="color" placeholder="1,1,1" />
+
+        <label>Alpha (0-1)</label>
+        <input id="alpha" placeholder="0.5" />
+
+        <label>Text Alignment</label>
+        <select id="align">
+          <option>left</option>
+          <option selected>center</option>
+          <option>right</option>
+        </select>
+
+        <h3 style="text-align: center">Bindings</h3>
+
+        <label>Enable Version Binding</label>
+        <select id="bind_version">
+          <option value="true" selected>true</option>
+          <option value="false">false</option>
+        </select>
+
+        <label>Enable Player Binding</label>
+        <select id="bind_player">
+          <option value="true" selected>true</option>
+          <option value="false">false</option>
+        </select>
+
+        <!-- EXPRESSION (HIDDEN CONDITIONALLY) -->
+        <div id="expr_box">
+          <label>Custom Text Expression</label>
+          <input
+            id="expr"
+            placeholder="('Minecraft ' + #playername + #version)"
+          />
+        </div>
+
+        <!-- TEXT (HIDDEN CONDITIONALLY) -->
+        <div id="text_box">
+          <label>Text</label>
+          <input id="text" placeholder="#text" />
+        </div>
+
+        <button onclick="downloadJSON()">Download JSON</button>
+      </div>
+
+      <div class="right">
+        <pre id="output"></pre>
+      </div>
+    </div>
+    <script src="../scripts/nic_z.js"></script>
+  </body>
+</html>
