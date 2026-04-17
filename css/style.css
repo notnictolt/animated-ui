@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
   position: relative;
 
-  padding: 10px; /* mobile breathing space */
+  padding: 14px;
 }
 
 body::before {
@@ -28,7 +28,7 @@ body::before {
   inset: 0;
 
   background: rgba(2, 6, 23, 0.65);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
 
   z-index: -1;
 }
@@ -39,37 +39,34 @@ body::before {
   justify-content: center;
   align-items: center;
 
-  gap: 20px; /* reduced for mobile */
-  padding: 10px;
-  margin: 5px;
+  gap: 24px;
+  padding: 14px;
+  margin: 8px;
 
   background: rgba(7, 44, 42, 0.4);
   backdrop-filter: blur(12px);
 
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.05);
 
-  flex-shrink: 0;
-  flex-wrap: wrap; /* prevents overflow */
+  flex-wrap: wrap;
 }
 
 .topnav a {
-  position: relative;
   text-decoration: none;
-  font-size: 12px; /* slightly smaller */
+  font-size: 14px; /* bigger */
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 
   color: #cbd5f5;
-  opacity: 0.8;
-  transition: 0.2s;
+  opacity: 0.9;
 }
 
 /* ---------- MAIN ---------- */
 .main {
   display: flex;
-  gap: 10px;
-  padding: 5px;
+  gap: 14px;
+  padding: 6px;
 
   flex: 1;
   min-height: 0;
@@ -86,14 +83,14 @@ body::before {
   display: flex;
   flex-direction: column;
 
-  padding: 15px;
+  padding: 18px;
 
-  background: rgba(15, 23, 42, 0.2);
-  backdrop-filter: blur(20px);
+  background: rgba(15, 23, 42, 0.25);
+  backdrop-filter: blur(22px);
 
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  border-radius: 16px;
+  border-radius: 18px;
 
   overflow: hidden;
 }
@@ -105,42 +102,41 @@ body::before {
 /* ---------- TEXT ---------- */
 h1 {
   text-align: center;
-  margin-bottom: 10px;
-  font-size: clamp(20px, 5vw, 28px);
+  margin-bottom: 14px;
+  font-size: clamp(24px, 6vw, 34px); /* bigger */
 
   background: -webkit-linear-gradient(#ff2cd5, rgb(126, 34, 255));
-
-  background-clip: text; /* ✅ standard */
-  -webkit-background-clip: text; /* ✅ webkit */
+  background-clip: text;
+  -webkit-background-clip: text;
 
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
 
 h3 {
-  margin-top: 15px;
-  margin-bottom: 6px;
-  font-size: 16px;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 18px;
   color: #69c5edff;
 }
 
 h4 {
   text-align: center;
-  margin-bottom: 10px;
-  font-size: 14px;
+  margin-bottom: 12px;
+  font-size: 16px;
   color: #9aa7a2ff;
 }
 
 h5 {
-  margin-bottom: 6px;
-  font-size: 13px;
+  margin-bottom: 8px;
+  font-size: 15px;
   color: #94a3b8;
 }
 
 label {
   display: block;
-  margin-bottom: 6px;
-  font-size: 13px;
+  margin-bottom: 8px;
+  font-size: 14px;
   color: #94a3b8;
 }
 
@@ -148,20 +144,19 @@ label {
 input,
 select {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
+  padding: 14px; /* bigger touch */
+  margin-bottom: 12px;
 
-  font-size: 16px; /* prevents zoom on mobile */
+  font-size: 17px; /* key for mobile */
 
-  background: rgba(30, 41, 59, 0.4);
+  background: rgba(30, 41, 59, 0.45);
   backdrop-filter: blur(10px);
 
   color: #e2e8f0;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
   outline: none;
-  transition: 0.25s;
 }
 
 input::placeholder {
@@ -170,35 +165,35 @@ input::placeholder {
 
 /* ---------- BOX ---------- */
 .box {
-  margin-top: 12px;
-  padding: 12px;
+  margin-top: 14px;
+  padding: 16px;
 
-  background: rgba(30, 41, 59, 0.35);
+  background: rgba(30, 41, 59, 0.4);
   backdrop-filter: blur(14px);
 
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* ---------- BUTTON ---------- */
 button {
-  margin-top: 15px;
-  padding: 14px;
+  margin-top: 18px;
+  padding: 16px;
   width: 100%;
 
-  font-size: 16px;
+  font-size: 17px;
 
-  border-radius: 12px;
+  border-radius: 14px;
   border: none;
 
-  background: rgba(11, 150, 62, 0.1);
+  background: rgba(11, 150, 62, 0.15);
   backdrop-filter: blur(20px);
 
   color: #7bfa68;
   font-weight: bold;
   cursor: pointer;
 
-  box-shadow: 0 6px 25px rgba(28, 178, 14, 0.1);
+  box-shadow: 0 6px 25px rgba(28, 178, 14, 0.2);
 }
 
 /* ---------- OUTPUT ---------- */
@@ -206,20 +201,20 @@ button {
   flex: 1;
   min-height: 0;
 
-  margin-top: 10px;
+  margin-top: 12px;
 
-  background: rgba(2, 6, 23, 0.5);
+  background: rgba(2, 6, 23, 0.6);
   backdrop-filter: blur(14px);
 
-  padding: 12px;
-  border-radius: 14px;
+  padding: 16px;
+  border-radius: 16px;
 
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 
   overflow: auto;
 
   color: #22c55e;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 /* ---------- SCROLL ---------- */
@@ -232,22 +227,22 @@ button {
   border-radius: 10px;
 }
 
-/* ---------- MOBILE FIX ---------- */
+/* ---------- MOBILE ---------- */
 @media (max-width: 1200px) {
   .main {
     flex-direction: column;
   }
 
   .topnav {
-    gap: 10px;
+    gap: 12px;
   }
 
   .topnav a {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .left,
   .right {
-    padding: 12px;
+    padding: 14px;
   }
 }
