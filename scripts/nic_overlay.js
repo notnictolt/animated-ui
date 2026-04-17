@@ -1,4 +1,3 @@
-// 🔹 parse helper
 function parsePair(input) {
   return input.split(",").map((v) => {
     v = v.trim();
@@ -9,7 +8,6 @@ function parsePair(input) {
   });
 }
 
-// 🔹 toggle UI
 function toggleUI() {
   const type = document.getElementById("type").value;
 
@@ -20,7 +18,6 @@ function toggleUI() {
     type === "gradient" ? "block" : "none";
 }
 
-// 🔹 main builder
 function updateJSON() {
   toggleUI();
 
@@ -32,7 +29,6 @@ function updateJSON() {
 
   let content = {};
 
-  // 🔥 IMAGE MODE (matches :contentReference[oaicite:2]{index=2})
   if (type === "image") {
     const texture =
       document.getElementById("texture").value ||
@@ -56,10 +52,7 @@ function updateJSON() {
       color: color,
       alpha: alpha,
     };
-  }
-
-  // 🔥 GRADIENT MODE (matches :contentReference[oaicite:3]{index=3})
-  else {
+  } else {
     const color1 = parsePair(
       document.getElementById("color1").value || "0,0,0,0.5"
     ).map(Number);
@@ -87,7 +80,6 @@ function updateJSON() {
   document.getElementById("output").textContent = JSON.stringify(data, null, 4);
 }
 
-// 🔹 download
 function downloadJSON() {
   const blob = new Blob([document.getElementById("output").textContent], {
     type: "application/json",
@@ -99,12 +91,10 @@ function downloadJSON() {
   a.click();
 }
 
-// 🔹 listeners
 document.querySelectorAll("input, select").forEach((el) => {
   el.addEventListener("input", updateJSON);
 });
 
 document.getElementById("type").addEventListener("change", updateJSON);
 
-// init
 updateJSON();

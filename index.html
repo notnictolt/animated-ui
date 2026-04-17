@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>Title | Animated Ui</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- Standard favicon -->
+    <link rel="stylesheet" href="../css/style.css" />
+
     <link
       rel="icon"
       type="image/png"
@@ -17,17 +17,14 @@
       href="images/favicon-16x16.png"
     />
 
-    <!-- ICO fallback -->
     <link rel="icon" href="images/favicon.ico" />
 
-    <!-- Apple devices -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="images/apple-touch-icon.png"
     />
 
-    <!-- Android / Chrome -->
     <link
       rel="icon"
       type="image/png"
@@ -53,19 +50,16 @@
       <div class="left">
         <h1 style="text-align: center">Title editor</h1>
 
-        <!-- SIZE -->
         <div class="box">
           <label>Size (x,y)</label>
           <input id="size" placeholder="180,28" />
 
-          <!-- ANIM -->
           <label>Animation starts from (x,y)</label>
           <input id="anim_from" placeholder="0,-20%" />
 
           <label>Animation ends to (x,y)</label>
           <input id="anim_to" placeholder="0,0" />
 
-          <!-- ANCHORS -->
           <label>Anchor</label>
           <select id="anchor_from">
             <option>top_middle</option>
@@ -80,7 +74,6 @@
           <option value="image">Image</option>
         </select>
 
-        <!-- LABEL OPTIONS -->
         <div id="label_options" class="box">
           <h4 style="text-align: center">Label Settings</h4>
           <h5>Font scale</h5>
@@ -114,7 +107,6 @@
           </select>
         </div>
 
-        <!-- IMAGE OPTIONS -->
         <div id="image_options" class="box" style="display: none">
           <h4 style="text-align: center">Default Texture</h4>
           <input id="tex_default" placeholder="textures/ui/title" />

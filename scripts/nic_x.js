@@ -12,10 +12,8 @@ function parsePair(input) {
   return input.split(",").map((v) => {
     v = v.trim();
 
-    // keep % values as string
     if (v.includes("%")) return v;
 
-    // convert numeric values
     const num = Number(v);
     return isNaN(num) ? v : num;
   });
@@ -45,7 +43,6 @@ function updateJSON() {
 
   const type = typeSelect.value;
 
-  // LABEL
   if (type === "label") {
     const defText =
       document.getElementById("text_default").value || "Minecraft";
@@ -95,10 +92,7 @@ function updateJSON() {
       ),
       text_alignment: document.getElementById("text_align").value,
     };
-  }
-
-  // IMAGE
-  else {
+  } else {
     const defTex =
       document.getElementById("tex_default").value || "textures/ui/title";
     const hovTex =

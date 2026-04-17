@@ -9,7 +9,6 @@ const buttonTypes = [
   "event_button",
 ];
 
-// 🔥 PRESETS
 const buttonPresets = {
   play_button: {
     pressed: "$play_button_target",
@@ -53,21 +52,17 @@ const buttonPresets = {
   },
 };
 
-// 🔹 parse x,y
 function parsePair(input) {
   return input.split(",").map((v) => {
     v = v.trim();
 
-    // keep % values as string
     if (v.includes("%")) return v;
 
-    // convert numeric values
     const num = Number(v);
     return isNaN(num) ? v : num;
   });
 }
 
-// 🔹 toggle UI
 function togglePanelUI() {
   const type = document.getElementById("panel_type").value;
   const img = document.getElementById("image_style");
@@ -77,14 +72,12 @@ function togglePanelUI() {
   }
 }
 
-// 🔹 apply preset to inputs
 function applyPreset(typeEl, defEl, hovEl) {
   const p = buttonPresets[typeEl.value];
   defEl.value = p.text;
   hovEl.value = p.hover;
 }
 
-// 🔹 generate buttons UI
 function generateButtons() {
   const container = document.getElementById("buttons_container");
   container.innerHTML = "";
@@ -113,10 +106,8 @@ function generateButtons() {
     wrap.appendChild(hov);
     container.appendChild(wrap);
 
-    // 🔥 apply preset initially
     applyPreset(type, def, hov);
 
-    // 🔥 events
     type.addEventListener("change", () => {
       applyPreset(type, def, hov);
       updateJSON();
@@ -129,7 +120,6 @@ function generateButtons() {
   updateJSON();
 }
 
-// 🔹 SPECIAL BINDINGS
 function buildBindings(type, text, hover) {
   if (type === "inbox_button") {
     return {
@@ -223,7 +213,6 @@ function buildBindings(type, text, hover) {
   return null;
 }
 
-// 🔹 MAIN
 function updateJSON() {
   togglePanelUI();
 
@@ -304,7 +293,6 @@ function updateJSON() {
     data[`${type}@button_panel`] = obj;
   });
 
-  // 🔥 PANEL RENDER
   if (panelType === "label") {
     data["button_panel@common.button"] = {
       size: panelSize,
@@ -415,7 +403,6 @@ function downloadJSON() {
   a.click();
 }
 
-// 🔹 INIT
 document.getElementById("panel_type").addEventListener("change", updateJSON);
 
 document.getElementById("btn_count").addEventListener("input", generateButtons);

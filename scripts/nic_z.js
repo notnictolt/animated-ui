@@ -2,16 +2,13 @@ function parsePair(input) {
   return input.split(",").map((v) => {
     v = v.trim();
 
-    // keep % values as string
     if (v.includes("%")) return v;
 
-    // convert numeric values
     const num = Number(v);
     return isNaN(num) ? v : num;
   });
 }
 
-// 🔥 UI TOGGLE LOGIC
 function updateVisibility() {
   const bindVersion = document.getElementById("bind_version").value === "true";
   const bindPlayer = document.getElementById("bind_player").value === "true";
@@ -19,7 +16,6 @@ function updateVisibility() {
   const textBox = document.getElementById("text_box");
   const exprBox = document.getElementById("expr_box");
 
-  // Show text ONLY if both false
   if (!bindVersion && !bindPlayer) {
     textBox.style.display = "block";
     exprBox.style.display = "none";
@@ -117,10 +113,8 @@ function downloadJSON() {
   a.click();
 }
 
-// LISTENERS
 document.querySelectorAll("input, select").forEach((el) => {
   el.addEventListener("input", updateJSON);
 });
 
-// INIT
 updateJSON();

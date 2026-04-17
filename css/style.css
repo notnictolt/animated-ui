@@ -1,11 +1,9 @@
-/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* BODY */
 body {
   display: flex;
   flex-direction: column;
@@ -16,21 +14,22 @@ body {
 
   color: #e2e8f0;
   min-height: 100vh;
-  overflow-x: hidden; /* 🔥 prevents right cutoff */
+
+  overflow-x: hidden;
   position: relative;
 }
 
-/* DARK OVERLAY */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
+
   background: rgba(2, 6, 23, 0.65);
   backdrop-filter: blur(2px);
+
   z-index: -1;
 }
 
-/* NAVBAR */
 .topnav {
   display: flex;
   justify-content: center;
@@ -46,10 +45,9 @@ body::before {
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
 
-  flex-shrink: 0; /* 🔥 prevents shrinking */
+  flex-shrink: 0;
 }
 
-/* NAV LINKS */
 .topnav a {
   position: relative;
   text-decoration: none;
@@ -83,21 +81,22 @@ body::before {
   width: 100%;
 }
 
-/* MAIN LAYOUT */
 .main {
   display: flex;
   gap: 10px;
   padding: 10px;
 
-  flex: 1; /* 🔥 fill remaining height */
-  min-height: 0; /* 🔥 critical fix for overflow bugs */
+  flex: 1;
+  min-height: 0;
+
+  width: 100%;
 }
 
-/* PANELS */
 .left,
 .right {
   flex: 1;
-  min-width: 0; /* 🔥 prevents overflow cutoff */
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
 
@@ -110,23 +109,53 @@ body::before {
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   border-radius: 16px;
+
+  overflow: hidden;
 }
 
-/* HEADINGS */
+.left {
+  overflow-y: auto;
+}
+
+.right {
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  background: -webkit-linear-gradient(#ff2cd5, rgb(126, 34, 255));
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 h3 {
   margin-top: 20px;
-  color: #38bdf8;
+  margin-bottom: 8px;
+  color: #69c5edff;
 }
 
-/* LABELS */
+h4 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #9aa7a2ff;
+}
+h5 {
+  margin-bottom: 8px;
+  color: #94a3b8;
+}
+
 label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   font-size: 13px;
   color: #94a3b8;
 }
 
-/* INPUTS */
 input,
 select {
   width: 100%;
@@ -155,19 +184,19 @@ select:focus {
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
 }
 
-/* SELECT ARROW */
 select {
   appearance: none;
 
   background-image: linear-gradient(45deg, transparent 50%, #38bdf8 50%),
     linear-gradient(135deg, #38bdf8 50%, transparent 50%);
+
   background-position: calc(100% - 18px) calc(50% - 3px),
     calc(100% - 12px) calc(50% - 3px);
+
   background-size: 6px 6px;
   background-repeat: no-repeat;
 }
 
-/* BOX */
 .box {
   margin-top: 15px;
   padding: 14px;
@@ -179,7 +208,6 @@ select {
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* BUTTON */
 button {
   margin-top: auto;
   padding: 12px;
@@ -203,10 +231,9 @@ button:hover {
   transform: translateY(-2px);
 }
 
-/* OUTPUT PANEL */
 #output {
   flex: 1;
-  min-height: 0; /* 🔥 important */
+  min-height: 0;
 
   margin-top: 10px;
 
@@ -221,9 +248,9 @@ button:hover {
   overflow: auto;
 
   color: #22c55e;
+  font-size: 13px;
 }
 
-/* SCROLLBAR */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -233,8 +260,7 @@ button:hover {
   border-radius: 10px;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .main {
     flex-direction: column;
   }
