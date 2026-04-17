@@ -183,7 +183,9 @@ select:focus {
   border: 1px solid #38bdf8;
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
 }
-
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
 select {
   appearance: none;
 
