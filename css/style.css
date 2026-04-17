@@ -229,20 +229,87 @@ button {
 
 /* ---------- MOBILE ---------- */
 @media (max-width: 1200px) {
-  .main {
-    flex-direction: column;
-  }
-
+  /* ---------- NAV ---------- */
   .topnav {
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
   }
 
   .topnav a {
-    font-size: 13px;
+    font-size: 14px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 8px;
   }
 
+  /* ---------- MAIN LAYOUT ---------- */
+  .main {
+    flex-direction: column;
+    gap: 12px;
+    padding: 6px;
+  }
+
+  /* ---------- PANELS ---------- */
   .left,
   .right {
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  /* ---------- TITLES ---------- */
+  h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 36px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  h4 {
+    font-size: 30px;
+  }
+
+  /* ---------- LABELS ---------- */
+  label {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  /* ---------- INPUTS ---------- */
+  input,
+  select {
+    font-size: 20px;
     padding: 14px;
+    border-radius: 14px;
+  }
+
+  /* ---------- BOX / SECTION ---------- */
+  .box {
+    padding: 16px;
+    margin-top: 14px;
+    border-radius: 16px;
+  }
+
+  /* ---------- BUTTON ---------- */
+  button {
+    padding: 18px;
+    font-size: 20px;
+    border-radius: 16px;
+    margin-top: 20px;
+  }
+
+  /* ---------- OUTPUT ---------- */
+  #output {
+    margin-top: 16px;
+    padding: 14px;
+    font-size: 16px;
+
+    max-height: 220px; /* prevents huge scroll */
+    border-radius: 14px;
   }
 }
