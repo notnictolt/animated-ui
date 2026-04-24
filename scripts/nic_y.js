@@ -7,6 +7,7 @@ const buttonTypes = [
   "marketplace_button",
   "profile_button",
   "event_button",
+  "exit_button"
 ];
 
 const buttonPresets = {
@@ -49,6 +50,11 @@ const buttonPresets = {
     pressed: "button.gathering",
     text: "%gathering.button.join.liveEventFallback",
     hover: "§l%gathering.button.join.liveEventFallback",
+  },
+  exit_button: {
+    pressed: "button.menu_exit",
+    text: "%gui.exit",
+    hover: "§l%gui.exit",
   },
 };
 
@@ -327,6 +333,8 @@ function updateJSON() {
       text_alignment: align,
       "$button_text_property_bag|default": {},
       property_bag: "$button_text_property_bag",
+      "button_text_bindings|default": [],
+      "bindings": "$button_text_bindings"
     };
   } else {
     const defTex =
