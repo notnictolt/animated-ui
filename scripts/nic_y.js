@@ -7,7 +7,7 @@ const buttonTypes = [
   "marketplace_button",
   "profile_button",
   "event_button",
-  "exit_button"
+  "exit_button",
 ];
 
 const buttonPresets = {
@@ -79,7 +79,19 @@ function togglePanelUI() {
 }
 
 function applyPreset(typeEl, defEl, hovEl) {
-  const p = buttonPresets[typeEl.value];
+  const type = typeEl.value;
+  const p = buttonPresets[type];
+
+  // check toggles
+  const useName = document.getElementById("profile_use_name")?.value !== "no";
+  const useCount = document.getElementById("friends_use_count")?.value !== "no";
+
+  // profile toggle OFF → don't override user input
+  if (type === "profile_button" && !useName) return;
+
+  // friends toggle OFF → don't override user input
+  if (type === "friends_button" && !useCount) return;
+
   defEl.value = p.text;
   hovEl.value = p.hover;
 }
@@ -127,13 +139,17 @@ function generateButtons() {
 }
 
 function buildBindings(type, text, hover) {
+  // ✅ Inbox custom values
   if (type === "inbox_button") {
+    const inboxTrue = document.getElementById("inbox_true")?.value || " §c!";
+    const inboxFalse = document.getElementById("inbox_false")?.value || "";
+
     return {
       $button_text: "#text",
       $button_text_hover: "#text_hover",
       $button_text_property_bag: {
-        "#inbox_unread_true": " §c!",
-        "#inbox_unread_false": "",
+        "#inbox_unread_true": inboxTrue,
+        "#inbox_unread_false": inboxFalse,
       },
       $button_text_bindings: [
         {
@@ -160,7 +176,13 @@ function buildBindings(type, text, hover) {
     };
   }
 
+  // ✅ Friends toggle
   if (type === "friends_button") {
+    const useCount =
+      document.getElementById("friends_use_count")?.value !== "no";
+
+    if (!useCount) return null;
+
     return {
       $button_text: "#text",
       $button_text_hover: "#text_hover",
@@ -183,7 +205,12 @@ function buildBindings(type, text, hover) {
     };
   }
 
+  // ✅ Profile toggle
   if (type === "profile_button") {
+    const useName = document.getElementById("profile_use_name")?.value !== "no";
+
+    if (!useName) return null;
+
     return {
       $button_text: "#text",
       $button_text_hover: "#text_hover",
@@ -247,6 +274,13 @@ function updateJSON() {
   const animTo = parsePair(document.getElementById("anim_to").value || "0,0");
   const anchor = document.getElementById("anchor").value;
 
+  const anchorMap = {
+    left: "left_middle",
+    right: "right_middle",
+    center: "center",
+  };
+  const anchorVal = anchorMap[align] || "center";
+
   const data = {
     namespace: "nic_y",
     content: {
@@ -272,7 +306,30 @@ function updateJSON() {
   document.querySelectorAll("#buttons_container > div").forEach((div) => {
     const type = div.children[0].value;
 
-    const preset = buttonPresets[type];
+    // clone preset (important to avoid mutation bug)
+    const preset = { ...buttonPresets[type] };
+
+    // profile toggle
+    if (type === "profile_button") {
+      const useName =
+        document.getElementById("profile_use_name")?.value !== "no";
+
+      if (!useName) {
+        preset.text = "%menu.profile";
+        preset.hover = "§l%menu.profile";
+      }
+    }
+
+    // friends toggle
+    if (type === "friends_button") {
+      const useCount =
+        document.getElementById("friends_use_count")?.value !== "no";
+
+      if (!useCount) {
+        preset.text = "%selectWorld.tab.friends";
+        preset.hover = "§l%selectWorld.tab.friends";
+      }
+    }
     const defInput = div.children[1].value;
     const hovInput = div.children[2].value;
 
@@ -326,15 +383,15 @@ function updateJSON() {
         },
       ],
     };
-
     data["button_content"] = {
       type: "label",
       font_scale_factor: scale,
-      text_alignment: align,
+      anchor_from: anchorVal,
+      anchor_to: anchorVal,
       "$button_text_property_bag|default": {},
       property_bag: "$button_text_property_bag",
       "button_text_bindings|default": [],
-      "bindings": "$button_text_bindings"
+      bindings: "$button_text_bindings",
     };
   } else {
     const defTex =

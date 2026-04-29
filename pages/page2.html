@@ -4,6 +4,7 @@
     <title>Middle panel | Animated Ui</title>
     <link rel="stylesheet" href="../css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link
       rel="icon"
       type="image/png"
@@ -16,15 +17,12 @@
       sizes="16x16"
       href="../images/favicon-16x16.png"
     />
-
     <link rel="icon" href="../images/favicon.ico" />
-
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="../images/apple-touch-icon.png"
     />
-
     <link
       rel="icon"
       type="image/png"
@@ -46,9 +44,11 @@
       <a href="page3.html">BOTTOM TEXT</a>
       <a href="page4.html">OVERLAY</a>
     </div>
+
     <div class="main">
       <div class="left">
         <h1 style="text-align: center">Middle panel editor</h1>
+
         <div class="box">
           <label>Size (x,y)</label>
           <input id="size" placeholder="120,128" />
@@ -63,11 +63,13 @@
             <option>right_middle</option>
           </select>
         </div>
+
         <h3 style="text-align: center">Button Designs</h3>
         <select id="panel_type">
           <option value="label">Label</option>
           <option value="image">Image</option>
         </select>
+
         <div class="box">
           <label>Size (x,y)</label>
           <input id="panel_size" placeholder="100%,20" />
@@ -83,10 +85,8 @@
           <div id="image_style">
             <h4>Texture</h4>
             <label>Default texture</label>
-            <input
-              id="tex_default"
-              placeholder="textures/animated_ui/button"
-            /><label>Hover texture</label>
+            <input id="tex_default" placeholder="textures/animated_ui/button" />
+            <label>Hover texture</label>
             <input id="tex_hover" placeholder="textures/animated_ui/button" />
             <label>Size (x,y)</label>
             <input id="img_size" placeholder="100% - 2px,100% - 2px" />
@@ -116,9 +116,33 @@
           <label>Label color</label>
           <input id="color_hover" placeholder="1,1,1" />
         </div>
+
+        <!-- ✅ NEW SETTINGS -->
+
         <h3 style="text-align: center">Buttons</h3>
         <input id="btn_count" type="number" value="2" min="1" max="8" />
         <div id="buttons_container" class="box"></div>
+        <div class="box">
+          <h3 style="text-align: center">Extra Button Settings</h3>
+
+          <label>Inbox unread true text</label>
+          <input id="inbox_true" placeholder=" §c!" />
+
+          <label>Inbox unread false text</label>
+          <input id="inbox_false" placeholder="" />
+
+          <label>Use player name in profile?</label>
+          <select id="profile_use_name">
+            <option value="yes" selected>Yes</option>
+            <option value="no">No</option>
+          </select>
+
+          <label>Show online friends count?</label>
+          <select id="friends_use_count">
+            <option value="yes" selected>Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
 
         <button onclick="downloadJSON()">Download JSON</button>
       </div>
@@ -127,6 +151,7 @@
         <pre id="output"></pre>
       </div>
     </div>
+
     <script src="../scripts/nic_y.js"></script>
   </body>
 </html>

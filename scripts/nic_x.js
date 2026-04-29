@@ -58,8 +58,18 @@ function updateJSON() {
     const defFont = document.getElementById("font_default").value;
     const hovFont = document.getElementById("font_hover").value;
 
+    const action = document.getElementById("pressed_action").value;
+
+    const actionMap = {
+      none: "",
+      exit: "button.menu_exit",
+      about: "button.menu_buy_game",
+    };
+
+    const pressedValue = actionMap[action] || "";
+
     data["title_button@common.button"] = {
-      $pressed_button_name: "button.menu_exit",
+      $pressed_button_name: pressedValue,
       controls: [
         {
           "default@title_label": {

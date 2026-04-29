@@ -99,7 +99,11 @@ function updateJSON() {
     },
   };
 
-  document.getElementById("output").textContent = JSON.stringify(data, null, 4);
+  document.getElementById("output").textContent = JSON.stringify(
+    data,
+    null,
+    4
+  ).replace(/\\\\n/g, "\\n");
 }
 
 function downloadJSON() {
